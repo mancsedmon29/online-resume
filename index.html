@@ -7,13 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a365d;     /* Dark blue - professional */
-            --accent: #3182ce;      /* Bright blue - links/hover */
-            --text: #2d3748;        /* Dark gray - main text */
-            --text-light: #4a5568;  /* Lighter text */
-            --bg: #ffffff;          /* White background */
-            --bg-section: #f7fafc;  /* Light gray sections */
-            --border: #e2e8f0;      /* Border color */
+            --primary: #1a365d;     
+            --accent: #3182ce;      
+            --text: #2d3748;        
+            --text-light: #4a5568;  
+            --bg: #ffffff;          
+            --bg-section: #f7fafc;  
+            --border: #e2e8f0;      
+            --gold: #d69e2e;        /* For achievements */
         }
 
         * {
@@ -118,6 +119,60 @@
 
         li {
             margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        /* Achievements Section - NEW */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, var(--bg-section) 0%, #fff 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(214, 158, 46, 0.15);
+        }
+
+        .achievement-card.featured {
+            border-left: 4px solid var(--gold);
+            background: linear-gradient(135deg, #fffbf0 0%, #fff 100%);
+        }
+
+        .achievement-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .achievement-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+            padding-right: 30px;
+        }
+
+        .achievement-year {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .achievement-desc {
+            font-size: 0.9rem;
             color: var(--text-light);
         }
 
@@ -229,12 +284,12 @@
             .job-header {
                 flex-direction: column;
             }
-            .skills-grid, .cert-grid {
+            .skills-grid, .cert-grid, .achievement-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Print Styles - para PDF ready */
+        /* Print Styles */
         @media print {
             body {
                 padding: 0;
@@ -294,6 +349,47 @@
                 <li>Provided technical assistance for teachers to troubleshoot LMS concerns</li>
                 <li>Created various activities such as assessments, assignments, and forums</li>
             </ul>
+        </div>
+    </section>
+
+    <!-- NEW ACHIEVEMENTS SECTION -->
+    <section>
+        <h2>Achievements & Recognition</h2>
+        <div class="achievement-grid">
+            <div class="achievement-card featured">
+                <span class="achievement-icon">🏆</span>
+                <div class="achievement-title">Employee of the Year</div>
+                <div class="achievement-year">2024</div>
+                <div class="achievement-desc">PPh Digital Media Production Inc. - Recognized for outstanding performance, dedication, and contribution to student success</div>
+            </div>
+
+            <div class="achievement-card">
+                <span class="achievement-icon">👥</span>
+                <div class="achievement-title">Professional Development Speaker</div>
+                <div class="achievement-year">2023</div>
+                <div class="achievement-desc">Conducted Arduino Professional Development training for educators</div>
+            </div>
+
+            <div class="achievement-card">
+                <span class="achievement-icon">🐍</span>
+                <div class="achievement-title">Professional Development Speaker</div>
+                <div class="achievement-year">2023</div>
+                <div class="achievement-desc">Led Python Fundamentals workshop for teachers and professionals</div>
+            </div>
+
+            <div class="achievement-card">
+                <span class="achievement-icon">🔧</span>
+                <div class="achievement-title">Raspberry Pi Training Program</div>
+                <div class="achievement-year">2025</div>
+                <div class="achievement-desc">Developed and delivered comprehensive Raspberry Pi 4/3 training curriculum</div>
+            </div>
+
+            <div class="achievement-card">
+                <span class="achievement-icon">🤝</span>
+                <div class="achievement-title">Raspberry Pi for Teams Workshop</div>
+                <div class="achievement-year">2026</div>
+                <div class="achievement-desc">Upcoming collaborative Raspberry Pi development program for professional teams</div>
+            </div>
         </div>
     </section>
 
