@@ -3,23 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hobbies</title>
+    <title>Edmon Mancao | Hobbies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;     
+            --accent: #3182ce;      
+            --text: #2d3748;        
+            --text-light: #4a5568;  
+            --bg: #ffffff;          
+            --bg-section: #f7fafc;  
+            --border: #e2e8f0;      
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            margin-bottom: 16px;
+            background: var(--bg-section); /* Fallback bg kung walang image */
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 40px;
+        }
+        .hobby-card {
+            background: var(--bg-section);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hobby-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.1);
+        }
+        .hobby-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 6px;
+            font-size: 1.05rem;
+        }
+        .hobby-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .hobby-card.tech .hobby-title::before { content: "💻 "; }
+        .hobby-card.sports .hobby-title::before { content: "🥊 "; }
+        .hobby-card.games .hobby-title::before { content: "🎮 "; }
+        .hobby-card.learning .hobby-title::before { content: "📚 "; }
+        .hobby-card.tactical .hobby-title::before { content: "🎯 "; }
+        .back-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+        .back-btn:hover { background: var(--accent); text-decoration: none; }
+        .btn-container { text-align: center; margin-top: 30px; }
+        @media (max-width: 600px) {
+            body { padding: 20px 15px; }
+            h1 { font-size: 1.8rem; }
+            .hobbies-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <h1>My Hobbies</h1>
-    <img src="../assets/images/mancsProj.png" alt="">
-    <h2>Here's my Hobbies</h2>
-    <ul>
-        <li>Combat Sports</li>
-        <li>Playing Professional Darts (Escalera, Cricket, 501, etc.)</li>
-        <li>Shooting Range (Assault Rifle (M4A1, AK47), Sniper, Shotgun)</li>
-        <li>Studying and Reading</li>
-        <li>Creating Prototype (Arduino, RPi, OrangePi)</li>
-        <li>Createing Project (Web Dev, Backend)</li>
-        <li>Coding/Programming</li>
-        <li>Playing Console Games (Playstation, XBox, PC Games)</li>
-        <li>Playing Table Tennis</li>
-    </ul>
-    <a href="../index.html">Go Back to Main</a>
+    <div class="header">
+        <!-- Kung ayaw gumana nung image mo, palitan mo yung src ng: https://via.placeholder.com/120 -->
+        <img src="../assets/images/mancsProj.png" 
+             alt="Edmon Mancao" 
+             class="profile-img"
+             onerror="this.src='https://via.placeholder.com/120/1a365d/ffffff?text=EM'">
+        <h1>My Hobbies & Interests</h1>
+        <div class="subtitle">Beyond Coding & Teaching</div>
+    </div>
+
+    <section>
+        <h2>What I Do For Fun</h2>
+        <ul class="hobbies-grid">
+            <li class="hobby-card tech">
+                <div class="hobby-title">Creating Prototypes</div>
+                <div class="hobby-desc">Arduino, Raspberry Pi, OrangePi projects for IoT and automation</div>
+            </li>
+            <li class="hobby-card tech">
+                <div class="hobby-title">Web & Backend Development</div>
+                <div class="hobby-desc">Building full-stack projects with Django, Flask, React</div>
+            </li>
+            <li class="hobby-card tech">
+                <div class="hobby-title">Coding & Programming</div>
+                <div class="hobby-desc">Exploring algorithms, data structures, and new languages</div>
+            </li>
+            <li class="hobby-card sports">
+                <div class="hobby-title">Combat Sports</div>
+                <div class="hobby-desc">Discipline, focus, and physical conditioning</div>
+            </li>
+            <li class="hobby-card sports">
+                <div class="hobby-title">Professional Darts</div>
+                <div class="hobby-desc">Escalera, Cricket, 501 — precision and strategy</div>
+            </li>
+            <li class="hobby-card sports">
+                <div class="hobby-title">Table Tennis</div>
+                <div class="hobby-desc">Fast reflexes and competitive play</div>
+            </li>
+            <li class="hobby-card tactical">
+                <div class="hobby-title">Shooting Range</div>
+                <div class="hobby-desc">Marksmanship with M4A1, AK47, Sniper, Shotgun</div>
+            </li>
+            <li class="hobby-card games">
+                <div class="hobby-title">Console & PC Gaming</div>
+                <div class="hobby-desc">PlayStation, Xbox, PC — strategy and FPS games</div>
+            </li>
+            <li class="hobby-card learning">
+                <div class="hobby-title">Studying & Reading</div>
+                <div class="hobby-desc">Tech, engineering, and personal development books</div>
+            </li>
+        </ul>
+    </section>
+
+    <div class="btn-container">
+        <a href="../index.html" class="back-btn">← Back to Main Resume</a>
+    </div>
 </body>
 </html>
