@@ -3,111 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Resume</title>
+    <title>Edmon Mancao | Educator & Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;     /* Dark blue - professional */
+            --accent: #3182ce;      /* Bright blue - links/hover */
+            --text: #2d3748;        /* Dark gray - main text */
+            --text-light: #4a5568;  /* Lighter text */
+            --bg: #ffffff;          /* White background */
+            --bg-section: #f7fafc;  /* Light gray sections */
+            --border: #e2e8f0;      /* Border color */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        p {
+            margin-bottom: 12px;
+            color: var(--text-light);
+        }
+
+        /* Work Experience */
+        .job {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--bg-section);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .job-date {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: var(--text-light);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-grid li {
+            background: var(--bg-section);
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            font-weight: 500;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 8px;
+        }
+
+        .cert-grid a {
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .cert-grid a:hover {
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* Schools */
+        .school-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .school-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Links & Footer */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: var(--border);
+            margin: 30px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .other-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .other-links li a {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .other-links li a:hover {
+            background: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .job-header {
+                flex-direction: column;
+            }
+            .skills-grid, .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles - para PDF ready */
+        @media print {
+            body {
+                padding: 0;
+                font-size: 12pt;
+            }
+            .other-links, footer {
+                display: none;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+            a {
+                color: var(--text);
+                text-decoration: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Edmon Mancao - Educator/Developer 👨‍🏫</h1>
-    <img src="./assets/images/mancsProj.png" alt="Professional Picture">
-    <h2>Summary</h2>
-    <p>Motivated and detail-oriented Computer Engineering student with hands-on experience in software development, hardware design, and embedded systems. Proficient in object-oriented programming (OOP) and experienced with web development technologies including HTML, CSS, JavaScript, ReactJS, FastAPI, Flask, and Django. Skilled in C, C++, Lua, Python, and Java, with a solid foundation in algorithms, data structures, and circuit analysis. Experienced in teaching high school students topics such as Arduino, Raspberry Pi, and OOP design patterns, demonstrating strong communication and leadership skills. Passionate about AI, IoT, and robotics, with practical experience in developing projects using microcontrollers and cloud technologies. Eager to contribute and expand technical skills in a dynamic work environment.</p>
-    <hr>
-    <h2>Education 🏫</h2>
-    <p>Bachelor of Science, Computer Engineering - <b>Universidad De Manila</b> (2010 - 2014)</p>
-    <hr>
-    <h2>Work Experience 👨‍💻</h2>
-    <ul>
-        <li><h3>Coding Instructor (ACE Facilitator) - PPh Digital Media Production Inc.</h3>
-        <p>July 2019 - Present</p>
-        <ul>
-            <li>Experience in Teaching for High School, Senior High school and even the professional for their additional skills and part of their working environment.</li>
-            <li>Strong experience teaching Python, Lua, Arduino and Raspberry Pi</li>
-            <li>Teaching also about how use Scratct and Mblock</li>
-            <li>Teaching about how to create Application online using MIT App Inventor</li>
-        </ul></li>
-        <li><h3>Integration Facilitator (LMS Admin) - PPh Digital Media Production Inc.</h3>
-        <p>July 2017 - 2019</p>
-        <ul>
-            <li>Assistance for teachers to troubleshoot their concerns</li>
-            <li>Creating a types of activity such as assessment, assignment, forum, etc.</li>
+    <div class="header">
+        <img src="./assets/images/mancsProj.png" alt="Edmon Mancao" class="profile-img">
+        <h1>Edmon Mancao</h1>
+        <div class="title">Educator & Developer</div>
+    </div>
+
+    <section>
+        <h2>Summary</h2>
+        <p>Motivated and detail-oriented Computer Engineering graduate with hands-on experience in software development, hardware design, and embedded systems. Proficient in object-oriented programming and web development technologies including HTML, CSS, JavaScript, ReactJS, FastAPI, Flask, and Django. Skilled in C, C++, Lua, Python, and Java, with a solid foundation in algorithms, data structures, and circuit analysis. Experienced in teaching high school students topics such as Arduino, Raspberry Pi, and OOP design patterns, demonstrating strong communication and leadership skills. Passionate about AI, IoT, and robotics, with practical experience developing projects using microcontrollers and cloud technologies.</p>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <p><strong>Bachelor of Science, Computer Engineering</strong> - Universidad De Manila <span class="job-date">2010 - 2014</span></p>
+    </section>
+
+    <section>
+        <h2>Work Experience</h2>
+        <div class="job">
+            <div class="job-header">
+                <h3>Coding Instructor (ACE Facilitator) - PPh Digital Media Production Inc.</h3>
+                <span class="job-date">July 2019 - Present</span>
+            </div>
+            <ul>
+                <li>Teaching experience for High School, Senior High School and professionals for skills upgrading</li>
+                <li>Strong experience teaching Python, Lua, Arduino and Raspberry Pi</li>
+                <li>Instructing Scratch and MBlock for visual programming</li>
+                <li>Teaching mobile application development using MIT App Inventor</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <h3>Integration Facilitator (LMS Admin) - PPh Digital Media Production Inc.</h3>
+                <span class="job-date">July 2017 - 2019</span>
+            </div>
+            <ul>
+                <li>Provided technical assistance for teachers to troubleshoot LMS concerns</li>
+                <li>Created various activities such as assessments, assignments, and forums</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Schools Served</h2>
+        <div class="school-item">
+            <strong>Colegio San Agustin, Makati (SHS)</strong>
+            <p class="job-date">S.Y. 2024 - Present</p>
+        </div>
+        <div class="school-item">
+            <strong>St. Paul University, Quezon City (JHS)</strong>
+            <p class="job-date">S.Y. 2023 - 2024</p>
+        </div>
+        <div class="school-item">
+            <strong>St. Louis School (CENTER), Baguio City (JHS - SHS)</strong>
+            <p class="job-date">S.Y. 2021 - 2022</p>
+        </div>
+        <div class="school-item">
+            <strong>Colegio De Dagupan - Pangasinan</strong>
+            <p class="job-date">S.Y. 2020 - 2021</p>
+        </div>
+        <div class="school-item">
+            <strong>John Wesley College - Tuguegarao</strong>
+            <p class="job-date">S.Y. 2020 - 2021</p>
+        </div>
+        <div class="school-item">
+            <strong>Zamora Memorial College, Bacacay Albay (SHS)</strong>
+            <p class="job-date">S.Y. 2017 - 2019</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <ul class="skills-grid">
+            <li>Python: ⭐⭐⭐⭐⭐</li>
+            <li>Arduino & Raspberry Pi: ⭐⭐⭐⭐⭐</li>
+            <li>Teaching & Customer Service: ⭐⭐⭐⭐⭐</li>
+            <li>Web Dev (HTML, CSS, JS): ⭐⭐⭐⭐</li>
+            <li>Lua: ⭐⭐⭐⭐</li>
+            <li>Git: ⭐⭐⭐⭐</li>
+            <li>Data Science: ⭐⭐⭐⭐</li>
+            <li>Django / Flask / React: ⭐⭐⭐</li>
+            <li>Machine Learning: ⭐⭐⭐</li>
+            <li>Backend Development: ⭐⭐⭐</li>
         </ul>
-        </li>
-    </ul>
-    <hr>
-    <h2>Schools I Teach and I Serve Before: 🏫</h2>
-    <ul>
-        <li><b>Colegio San Agustin, Makati (SHS)</b>
-            <p>S.Y: Year: 2024 - Present</p>
-        </li>
-        <li><b>St. Paul University, Quezon City (JHS)</b>
-            <p>S.Y: 2023 - 2024</p>
-        </li>
-        <li><b>St. Louis School (CENTER), Baguio City (JHS - SHS)</b>
-            <p>S.Y: 2021 - 2022</p>
-        </li>
-        <li><b>Colegio De Dagupan - Pangasinan</b>
-            <p>S.Y: 2020 - 2021</p>
-        </li>
-        <li><b>John Wesley College - Tuguegarao</b>
-            <p>S.Y: 2020 - 2021</p>
-        </li>
-        <li><b>Zamora Memorial College, Bacacay Albay (SHS)</b>
-            <p>S.Y: 2017 - 2019</p>
-        </li>
-    </ul>
-    <hr>
-    <h2>Skills</h2>
-    <ul>
-        <li>Customer Service: ⭐️⭐️⭐️⭐️⭐️</li>
-        <li>Teaching experience (Students/Professionals): ⭐️⭐️⭐️⭐️⭐️</li>
-        <li>Python: ⭐️⭐️⭐️⭐️⭐️</li>
-        <li>Lua: ⭐️⭐️⭐️⭐️</li>
-        <li>Web Development (HTML, CSS, JS): ⭐️⭐️⭐️⭐️</li>
-        <li>Arduino: ⭐️⭐️⭐️⭐️⭐️</li>
-        <li>Raspberry Pi: ⭐️⭐️⭐️⭐️⭐️</li>
-        <li>Frameworks (Django, Flask, React): ⭐️⭐️⭐️</li>
-        <li>Git: ⭐️⭐️⭐️⭐️</li>
-        <li>Data Science: ⭐️⭐️⭐️⭐️</li>
-        <li>Machine Learning: ⭐️⭐️⭐️</li>
-        <li>Backends: ⭐️⭐️⭐️</li>
-    </ul>
-    <hr>
-    <h2>Certifications</h2>
-    <ul>
-        <li><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-ca60a762-8cde-4ce9-9020-7533dc6d1e5c.jpg">Python Game Development with Pygame Zero for Beginners - Udemy</a></li>
-        <li><a href="https://udemy-certificate.s3.amazonaws.com/image/UC-b1578fa0-7642-4cc2-a125-67bd10d6c48a.jpg">Exploring Game Mechanics with Python by Example - Udemy</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Algorithms%20%28Python%29">Algorithms in Python - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Binary%20Search%20for%20Coding%20Interviews">Binary Search for Coding Interview - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Bitwise%20for%20Coding%20Interview">Bitwise for Coding Interview - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Coding%20Interview%20Patterns">Coding Interview Patterns - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Number%20System">Number System - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Problem%20Solving%20with%20DSA">Problem Solving with DSA - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Recursion%20for%20Coding%20Interviews">Recursion for Coding Interviews</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Bootstrap">Bootstrap - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/HTML">HTML - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Data%20Structure%20%28Python%29">Data Structure - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Python">Python - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Problem%20Solving%20for%20Beginners">Problem Solving for Beginners - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Time%20Complexity%20Analysis">Time Complexity Analysis - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Pointers%20in%20C">Pointers in C - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/C%20Programming">C Programming - Log2Base2</a></li>
-        <li><a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Introduction%20to%20Programming">Introduction to Programming - Log2Base2</a></li>
-        <li><a href="https://www.discount-courses.com/certificates/cryaqmi5rj">HTML: Crash Course - Pirple</a></li>
-        <li><a href="https://www.discount-courses.com/certificates/6pnqhomjma">JavaScript: Crash Course - Pirple</a></li>
-        <li><a href="https://www.pirple.com/certificates/c9wfpmz08u">C++ For the Res of Us - Pirple</a></li>
-        <li><a href="https://www.pirple.com/certificates/nvm894urb8">Full Stack Web Development with Flask - Pirple</a></li>
-        <li><a href="https://www.pirple.com/certificates/885azhcx0f">Python is Easy - Pirple</a></li>
-        <li><a href="https://www.pirple.com/certificates/it9mpfj5sf">HTML5 and CSS3 - Pirple</a></li>
-        <li><a href="https://codenga.com/p/certificate/hash/3e8959ab4qgw0gg8gww4s884k8wcs0c">Python Fundamentals - Level 1 - Codenga</a></li>
-        <li><a href="https://codenga.com/p/certificate/hash/q6gwgu8boy88w4g80ggwoswwg0k4sgg">Python Fundamentals - Level 2 - Codenga</a></li>
-        <li><a href="https://codenga.com/p/certificate/hash/m5dvamevi684g084g0kcocgwcogcc4g">Python Fundamentals - Level 3 - Codenga</a></li>
-    </ul>
-    <small>All the certifcates you see here were legit I'd took up all these certifications.</small>
-    <hr>
-    <h2>Other</h2>
-    <ul>
-        <li><a href="./public/contact.html">Contact Me📱</a></li>
-        <li><a href="./public/hobbies.html">Hobbies </a></li>
-    </ul>
+    </section>
+
+    <section>
+        <h2>Certifications</h2>
+        <div class="cert-grid">
+            <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-ca60a762-8cde-4ce9-9020-7533dc6d1e5c.jpg">Python Game Dev with Pygame Zero - Udemy</a>
+            <a href="https://udemy-certificate.s3.amazonaws.com/image/UC-b1578fa0-7642-4cc2-a125-67bd10d6c48a.jpg">Game Mechanics with Python - Udemy</a>
+            <a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Algorithms%20%28Python%29">Algorithms in Python - Log2Base2</a>
+            <a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Binary%20Search%20for%20Coding%20Interviews">Binary Search - Log2Base2</a>
+            <a href="https://log2base2.com/Assets/Certificates/edmon.mancao29/Data%20Structure%20%28Python%29">Data Structures - Log2Base2</a>
+            <a href="https://www.pirple.com/certificates/885azhcx0f">Python is Easy - Pirple</a>
+            <a href="https://www.pirple.com/certificates/nvm894urb8">Full Stack with Flask - Pirple</a>
+            <a href="https://codenga.com/p/certificate/hash/m5dvamevi684g084g0kcocgwcogcc4g">Python Fundamentals L3 - Codenga</a>
+        </div>
+        <small>*Showing 8 key certifications. 20+ total certifications completed.</small>
+    </section>
+
+    <section>
+        <h2>Other</h2>
+        <ul class="other-links">
+            <li><a href="./public/contact.html">Contact Me</a></li>
+            <li><a href="./public/hobbies.html">Hobbies</a></li>
+        </ul>
+    </section>
+
     <footer>
         <p>&copy; Edmon Mancao 2024. All rights reserved.</p>
     </footer>
